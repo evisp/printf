@@ -1,4 +1,4 @@
-0;10;1c0;10;1c#include <stdlib.h>
+#include <stdlib.h>
 #include <stdarg.h>
 #include "main.h"
 
