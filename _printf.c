@@ -10,54 +10,6 @@
 int _printf(const char *format, ...)
 {
   va_list arguments;
-  int num = 0;
-  int i;
-  
-  if (format == NULL)
-    return (-1);
-  
-  va_start(arguments, format);
-
-  i = 0;
-  while (format[i] != '\0')
-    {
-      if (format[i] == '%' && format[i+1] == '%')
-	{
-	  _putchar(format[i]), num++;
-	  continue;
-	}
-      else if (format[i] == '%' && format[i+1] != '%')
-	{
-	  switch (format[++i])
-	    {
-	    case 's':
-	      num += p_str(arguments), i++;
-	      break;
-	    case 'c':
-	      num += p_char(arguments), i++;
-	      break;
-	    case '%':
-	      _putchar('%'), num++, i++;
-	      break;
-	    case '\0':
-	      return (-1);
-	    case 'i':
-	    case 'd':
-	      num += p_int(arguments), i++;
-	      break;
-	    default:
-	      _putchar('%'), _putchar(format[i]), num += 2, i++;
-	    }
-	}
-      else
-	_putchar(format[i]), num++, i++;
-    }
-  va_end(arguments);
-  return (num);
-
-  
-  /**
-  va_list arguments;
   const char *p;
   int num = 0;
 
@@ -101,8 +53,6 @@ int _printf(const char *format, ...)
     }
   va_end(arguments);
   return (num);
-  
-  */
   
   /**
   va_list arg;
